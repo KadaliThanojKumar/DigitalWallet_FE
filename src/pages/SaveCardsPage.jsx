@@ -610,7 +610,7 @@ const SaveCardsPage = ({ user }) => {
 
   const fetchCards = async () => {
     try {
-      const res = await axios.get(`http://localhost:8088/api/cards/user/${user.id}`);
+      const res = await axios.get(`http://localhost:8099/api/cards/user/${user.id}`);
       setCards(res.data);
       const defaultCard = res.data.find((c) => c.isDefault);
       if (defaultCard) setDefaultCardId(defaultCard.id);
@@ -656,7 +656,7 @@ const SaveCardsPage = ({ user }) => {
     };
 
     try {
-      const res = await axios.post('http://localhost:8088/api/cards/add', newCard);
+      const res = await axios.post('http://localhost:8099/api/cards/add', newCard);
       setCards([res.data, ...cards]);
       toast.success('✅ Card saved successfully!');
       setCardNumber('');
@@ -672,7 +672,7 @@ const SaveCardsPage = ({ user }) => {
   const handleDeleteCard = async (id) => {
     if (!window.confirm('Are you sure you want to delete this card?')) return;
     try {
-      await axios.delete(`http://localhost:8088/api/cards/${id}`);
+      await axios.delete(`http://localhost:8099/api/cards/${id}`);
       setCards(cards.filter((c) => c.id !== id));
       if (defaultCardId === id) setDefaultCardId(null);
       toast.info('🗑️ Card removed.');
@@ -684,7 +684,7 @@ const SaveCardsPage = ({ user }) => {
 
   const handleSetDefault = async (id) => {
     try {
-      await axios.put(`http://localhost:8088/api/cards/default/${id}?userId=${user.id}`);
+      await axios.put(`http://localhost:8099/api/cards/default/${id}?userId=${user.id}`);
       setDefaultCardId(id);
       fetchCards();
       toast.success('⭐ Card set as default.');

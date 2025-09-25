@@ -228,7 +228,7 @@ const BillPayments = ({ user }) => {
 
   const fetchBills = async () => {
     try {
-      const res = await axios.get(`http://localhost:8088/api/bills/user/${user.id}`);
+      const res = await axios.get(`http://localhost:8099/api/bills/user/${user.id}`);
       setRecentBills(res.data);
     } catch (err) {
       console.error("❌ Error fetching bills:", err);
@@ -256,7 +256,7 @@ const BillPayments = ({ user }) => {
         amount: parseFloat(billAmount),
       };
 
-      const res = await axios.post("http://localhost:8088/api/bills/add", newBill);
+      const res = await axios.post("http://localhost:8099/api/bills/add", newBill);
 
       // Add to recent bills
       setRecentBills([res.data, ...recentBills]);

@@ -442,7 +442,7 @@ const Transactions = ({ user }) => {
       setLoading(true);
       setError("");
       try {
-        const res = await fetch(`http://localhost:8088/api/wallet/${user.id}`);
+        const res = await fetch(`http://localhost:8099/api/wallet/${user.id}`);
         if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
         const data = await res.json();
         setTransactions(data.transactions || []);

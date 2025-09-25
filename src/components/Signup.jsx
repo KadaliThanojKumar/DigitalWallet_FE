@@ -729,7 +729,7 @@ const Signup = ({ onLogin }) => {
     }
 
     try {
-      const response = await axios.post("http://localhost:8088/api/auth/signup", {
+      const response = await axios.post("http://localhost:8099/api/auth/signup", {
         name, phone, email, password
       });
 
@@ -737,7 +737,7 @@ const Signup = ({ onLogin }) => {
         setError(response.data.error);
       } else {
         // Auto-login after signup
-        const loginResponse = await axios.post("http://localhost:8088/api/auth/login", { email, password });
+        const loginResponse = await axios.post("http://localhost:8099/api/auth/login", { email, password });
         if (loginResponse.data.token) {
           localStorage.setItem("token", loginResponse.data.token);
           localStorage.setItem("user", JSON.stringify(loginResponse.data.user));

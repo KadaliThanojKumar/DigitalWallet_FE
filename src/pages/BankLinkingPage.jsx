@@ -417,7 +417,7 @@ const BankLinkingPage = ({ user }) => {
   }
 
   try {
-    const response = await axios.post(`http://localhost:8088/api/bank/add`, {
+    const response = await axios.post(`http://localhost:8099/api/bank/add`, {
       userId: user.id,
       bankName,
       accountNumber,
@@ -446,7 +446,7 @@ const BankLinkingPage = ({ user }) => {
     if (!confirmDelete) return;
 
     try {
-      await axios.delete(`http://localhost:8088/api/bank/delete/${bankId}`);
+      await axios.delete(`http://localhost:8099/api/bank/delete/${bankId}`);
       setBankDetails(bankDetails.filter(b => b.id !== bankId));
       toast.info('ℹ Bank account removed.');
     } catch (err) {

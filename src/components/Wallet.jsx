@@ -427,7 +427,7 @@ const Wallet = ({ user }) => {
 
   const fetchWallet = async () => {
     try {
-      const response = await fetch(`http://localhost:8088/api/wallet/${user.id}`);
+      const response = await fetch(`http://localhost:8099/api/wallet/${user.id}`);
       if (!response.ok) throw new Error("Failed to fetch wallet");
       const data = await response.json();
       setBalance(data.balance);

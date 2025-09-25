@@ -391,7 +391,7 @@ const AddMoney = ({ user }) => {
 
     try {
       setIsLoading(true);
-      const response = await fetch("http://localhost:8088/api/wallet/add", {
+      const response = await fetch("http://localhost:8099/api/wallet/add", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ userId: user.id, amount: amt }),
