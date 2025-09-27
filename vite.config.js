@@ -6,8 +6,8 @@ export default defineConfig({
   plugins: [react()],
   //base: "/", // Ensures correct relative paths
   base: "/DigitalWallet_FE/",
-  root: "./",
-  publicDir: "public", // Ensures `index.html` is correctly located
+  //root: "./",
+  //publicDir: "public", // Ensures `index.html` is correctly located
 });
 
 
